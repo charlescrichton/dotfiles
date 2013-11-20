@@ -17,8 +17,8 @@ protocol = https
 ui = true
 
 [user]
-name = Ryan Brooks
-email = ryanbrooksis@gmail.com
+name = Charles Crichton
+email = charles.crichton@ndm.ox.ac.uk
 
 [credential]
 helper = /opt/boxen/bin/boxen-git-credential
