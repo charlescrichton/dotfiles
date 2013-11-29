@@ -29,7 +29,8 @@ export LSCOLORS=GxFxCxDxBxcgcdabagacad
 #fi
 
 # Miscellaneous settings for compilation and editing
-export EDITOR=vim
+#export EDITOR=vim
+export EDITOR="/usr/local/bin/mate -w"
 export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=192m"
 #export LC_ALL="en_GB.UTF-8"
 export HISTCONTROL=ignoredups:ignorespace

@@ -45,3 +45,7 @@ plugins=(git git-flow git-hubflow git-extras)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+unalias git
+export EDITOR="/usr/local/bin/mate -w"
+
+
