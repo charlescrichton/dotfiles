@@ -11,6 +11,28 @@ ZSH_THEME="robbyrussell"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+linkdir () {
+ if (( $# != 2 )) then
+ 	echo "usage: linkdir <dir> <type>"
+	echo "       this adds a link to dir at ~/src/links/<type>/<dir>"
+	echo "       also available:"
+	echo "           listlinks - list links"
+ else 
+			mkdir -p ~/src/links/$2 ; 
+			echo "ln -s $1 ~/src/links/$2/$1"; 
+			ln -s $1 ~/src/links/$2/$1 ; 
+ fi 
+}
+
+listlinks() {
+	 if (( $# == 0 )) then
+ 		command ls -1 ~/src/links 
+		echo "usage: listlinks [<dir>]";	  
+	  else	 	
+	  	command ls ~/src/links/$1		
+	 fi;
+}
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -40,7 +62,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow git-hubflow git-extras)
+plugins=(git git-flow-completion git-flow git-hubflow git-extras vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -48,4 +70,8 @@ source $ZSH/oh-my-zsh.sh
 unalias git
 export EDITOR="/usr/local/bin/mate -w"
 
+export PATH="$PATH:/Users/crc/libs/gradle-2.1/bin"
 
+
+PERL_MB_OPT="--install_base \"/Users/crc/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/crc/perl5"; export PERL_MM_OPT;
