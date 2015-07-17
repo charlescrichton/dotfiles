@@ -62,7 +62,7 @@ listlinks() {
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-flow-completion git-flow git-hubflow git-extras vagrant)
+plugins=(vagrant git git-flow-completion git-flow git-hubflow git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,8 +70,11 @@ source $ZSH/oh-my-zsh.sh
 unalias git
 export EDITOR="/usr/local/bin/mate -w"
 
-export PATH="$PATH:/Users/crc/libs/gradle-2.1/bin"
-
+export PATH="$PATH:/work/shared/tools/gradle-2.3/bin:/work/shared/utils/bin"
+#Stop it asking about .ssh 
+alias vagrant="nocorrect vagrant"
 
 PERL_MB_OPT="--install_base \"/Users/crc/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/crc/perl5"; export PERL_MM_OPT;
+
+
