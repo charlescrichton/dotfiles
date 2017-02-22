@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/Repo/tools/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -66,15 +66,33 @@ plugins=(vagrant git git-flow-completion git-flow git-hubflow git-extras)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-unalias git
-export EDITOR="/usr/local/bin/mate -w"
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-export PATH="$PATH:/work/shared/tools/gradle-2.3/bin:/work/shared/utils/bin"
+# Customize to your needs...
+#unalias git
+#export EDITOR="/usr/local/bin/mate -w"
+export EDITOR="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+#export PATH="$PATH:/Applications/Sublime\ Text.app/Contents/SharedSupport/bin"
+
 #Stop it asking about .ssh 
 alias vagrant="nocorrect vagrant"
 
 PERL_MB_OPT="--install_base \"/Users/crc/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/crc/perl5"; export PERL_MM_OPT;
+
+# Use Docker to run Gradle 3.3
+alias gradle="docker run --rm -it -v ~/Temporary/gradle-caches:/root/.gradle/caches -v $PWD:/usr/bin/app:rw niaquinto/gradle"
+
+# Use Docker to run pandoc
+alias pandoc="docker run -v $PWD:/source:rw jagregory/pandoc"
+## E.g. pandoc -f markdown -t html5 myfile.md -o myfile.html
+
+# Use Docker to run node (using Alpine not Ubuntu)
+alias node="docker run -it --rm --name cmd-node -v "$PWD":/usr/src/app -w /usr/src/app node:alpine node"
+# alias npm="docker run -it --rm --name cmd-node -v "$PWD":/usr/src/app -w /usr/src/app node:alpine npm"
+alias npm="docker run -it --rm --name cmd-node -v "$PWD":/usr/src/app -w /usr/src/app -v ~/Temporary/npm-cache:/root/.npm node:alpine npm"
+# Install latest `npm install npm@latest -g`
 
 
